@@ -3,17 +3,14 @@
 
   let taskInput: string;
 
+  $: tasks = $todo.sort((a, b) => +a.done - +b.done);
+
   const handleAddTask = () => {
     if (taskInput) {
       todo.addTask(taskInput);
       taskInput = "";
     }
   };
-
-  $: tasks = $todo.sort((a, b) => +a.done - +b.done);
-
-  $: console.log($todo)
-
 </script>
 
 <main>
